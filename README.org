@@ -38,3 +38,7 @@
 
 * Reporting Bugs in OpenFOAM
   [[http://www.OpenFOAM.com/bugs]]
+
+* This is modified for compilation on windows for use in WindNinja with this patch:
+http://www.symscape.com/files/articles/openfoam22x-windows/v3-mingw-openfoam-2-2-x.patch.zip
+

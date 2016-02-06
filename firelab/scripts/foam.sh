@@ -29,5 +29,5 @@ source $FOAM_INST_DIR/OpenFOAM-2.2.x/etc/bashrc \
        MPI_ARCH_PATH=$FOAM_INST_DIR/OpenFOAM-2.2.x/firelab/msmpi
 ./Allwmake
 cd $HOME/src/windninja/src/ninjafoam/
-./Allwmake
+wmake
 

@@ -13,9 +13,9 @@ cd zlib-1.2.8
 sed -e s/"PREFIX ="/"PREFIX = x86_64-w64-mingw32-"/ -i win32/Makefile.gcc
 make -f win32/Makefile.gcc
 # Check these
-sudo BINARY_PATH=/usr/lib/gcc/i686-w64-mingw32/4.8 \
-     INCLUDE_PATH=/usr/lib/gcc/i686-w64-mingw32/4.8/include \
-     LIBRARY_PATH=/usr/lib/gcc/i686-w64-mingw32/4.8 \
+sudo BINARY_PATH=/usr/lib/gcc/x86_64-w64-mingw32/4.8 \
+     INCLUDE_PATH=/usr/lib/gcc/x86_64-w64-mingw32/4.8/include \
+     LIBRARY_PATH=/usr/lib/gcc/x86_64-w64-mingw32/4.8 \
      make -f win32/Makefile.gcc install
 cd ..
 

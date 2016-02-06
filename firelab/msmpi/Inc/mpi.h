@@ -124,8 +124,8 @@ extern "C" {
 /*---------------------------------------------------------------------------*/
 
 /* Address size integer */
-#include <stdint.h>
 #ifdef _WIN64
+#include <stdint.h>
 typedef __int64 MPI_Aint;
 #else
 typedef int MPI_Aint;

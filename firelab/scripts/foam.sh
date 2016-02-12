@@ -29,5 +29,20 @@ source $FOAM_INST_DIR/OpenFOAM-2.2.x/etc/bashrc \
        MPI_ARCH_PATH=$FOAM_INST_DIR/OpenFOAM-2.2.x/firelab/msmpi
 ./Allwmake
 cd $HOME/src/windninja/src/ninjafoam/
+wmake libso
+cd $HOME/src/windninja/src/ninjafoam/utility/applyInit
 wmake
-
+cd $WM_PROJECT_DIR
+# copy some stuff into the dist
+cp /usr/lib/gcc/x86_64-w64-mingw32/4.8/libgcc_s_sjlj-1.dll \
+   platforms/linux64mingw-w64SPOpt/lib/
+cp /usr/x86_64-w64-mingw32/lib/libwinpthread-1.dll \
+   platforms/linux64mingw-w64SPOpt/lib/
+cp /usr/lib/gcc/x86_64-w64-mingw32/4.8/libstdc++-6.dll \
+   platforms/linux64mingw-w64SPOpt/lib/
+cp platforms/linux64mingw-w64SPOpt/lib/msmpi/*.dll platforms/linux64mingw-w64SPOpt/lib
+cp $FOAM_USER_LIBBIN/*.dll platforms/linux64mingw-w64SPOpt/lib/
+cp $FOAM_USER_APPBIN/*.exe platforms/linux64mingw-w64SPOpt/bin/
+zip -r ninjafoam.zip etc/ \
+                     platforms/linux64mingw-w64SPOpt/lib/*.dll \
+                     platforms/linux64mingw-w64SPOpt/bin/*.exe

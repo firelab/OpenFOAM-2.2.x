@@ -43,6 +43,6 @@ cp /usr/lib/gcc/x86_64-w64-mingw32/4.8/libstdc++-6.dll \
 cp platforms/linux64mingw-w64SPOpt/lib/msmpi/*.dll platforms/linux64mingw-w64SPOpt/lib
 cp $FOAM_USER_LIBBIN/*.dll platforms/linux64mingw-w64SPOpt/lib/
 cp $FOAM_USER_APPBIN/*.exe platforms/linux64mingw-w64SPOpt/bin/
-zip -r ninjafoam.zip etc/ \
-                     platforms/linux64mingw-w64SPOpt/lib/*.dll \
-                     platforms/linux64mingw-w64SPOpt/bin/*.exe
+zip -r $PWD.zip etc/ \
+                platforms/linux64mingw-w64SPOpt/lib/*.dll \
+                platforms/linux64mingw-w64SPOpt/bin/*.exe

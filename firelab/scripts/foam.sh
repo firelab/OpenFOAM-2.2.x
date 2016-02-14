@@ -16,7 +16,6 @@ cd $WM_PROJECT_DIR/wmake/src
 make
 ln -s $WM_PROJECT_DIR/wmake/platforms/linux64Gcc \
       $WM_PROJECT_DIR/wmake/platforms/linux64mingw-w64
-cd $WM_PROJECT_DIR
 source $FOAM_INST_DIR/OpenFOAM-2.2.x/etc/bashrc \
        WM_OSTYPE=MSwindows \
        WM_COMPILER=mingw-w64 \
@@ -27,6 +26,8 @@ source $FOAM_INST_DIR/OpenFOAM-2.2.x/etc/bashrc \
        compilerInstall=system \
        WM_MPLIB=MSMPI \
        MPI_ARCH_PATH=$FOAM_INST_DIR/OpenFOAM-2.2.x/firelab/msmpi
+
+cd $WM_PROJECT_DIR
 ./Allwmake
 cd $HOME/src/windninja/src/ninjafoam/
 wmake libso

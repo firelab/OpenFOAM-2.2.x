@@ -48,7 +48,7 @@ cp $FOAM_USER_LIBBIN/*.dll platforms/linux64mingw-w64SPOpt/lib/
 cp $FOAM_USER_APPBIN/*.exe platforms/linux64mingw-w64SPOpt/bin/
 
 # zip etc
-zip -r $PWD.zip etc/ \
+zip -r $PWD.zip etc/
 
 # zip all of the none-scotch dependant executables
 for fname in "surfaceTransformPoints" \

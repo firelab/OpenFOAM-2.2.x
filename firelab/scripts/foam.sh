@@ -60,7 +60,7 @@ for fname in "surfaceTransformPoints" \
              "applyInit" \
              "mpiexec";
 do
-    zip $PWD.zip platforms/linux64mingw-w64SPOpt/bin/${fname}.exe &&
+    zip $PWD.zip platforms/linux64mingw-w64SPOpt/bin/${fname}.exe
 done
 
 # uncomment if we have scotch
@@ -109,7 +109,7 @@ for fname in "libOpenFOAM" \
              "msmpi64" \
              "libWindNinja";
 do
-    zip $PWD.zip platforms/linux64mingw-w64SPOpt/lib/${fname}.dll &&
+    zip $PWD.zip platforms/linux64mingw-w64SPOpt/lib/${fname}.dll
 done
 
 # just get everything

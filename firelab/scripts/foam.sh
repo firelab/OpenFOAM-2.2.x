@@ -1,6 +1,6 @@
 #!/bin/bash
 export FOAM_INST_DIR="`dirname $PWD`";
-
+export CFLAGS="-DSCOTCH_VERSION=6 -DSCOTCH_RELEASE=0 -DSCOTCH_PATCHLEVEL=0"
 source $FOAM_INST_DIR/OpenFOAM-2.2.x/etc/bashrc
 cd $WM_PROJECT_DIR/wmake/src
 make
@@ -36,10 +36,12 @@ cp /usr/lib/gcc/x86_64-w64-mingw32/4.8/libstdc++-6.dll \
    platforms/linux64mingw-w64SPOpt/lib/ &&
 cp firelab/msmpi/Lib/amd64/msmpi64.dll platforms/linux64mingw-w64SPOpt/lib &&
 cp firelab/msmpi/Bin/mpiexec.exe platforms/linux64mingw-w64SPOpt/bin &&
-cp firelab/zlib-1.2.8/zlib1.dll platforms/linux64mingw-w64SPOpt/lib &&
+#cp firelab/zlib-1.2.8/zlib1.dll platforms/linux64mingw-w64SPOpt/lib &&
 cp platforms/linux64mingw-w64SPOpt/lib/msmpi/*.dll platforms/linux64mingw-w64SPOpt/lib &&
 cp $FOAM_USER_LIBBIN/*.dll platforms/linux64mingw-w64SPOpt/lib/ &&
 cp $FOAM_USER_APPBIN/*.exe platforms/linux64mingw-w64SPOpt/bin/ &&
+
+cp $WM_THIRD_PARTY_DIR/scotch_6.0.0/src/libscotch/libscotch.dll platforms/linux64mingw-w64SPOpt/lib/
 
 # zip etc
 zip -r $PWD.zip etc/ &&
@@ -58,19 +60,16 @@ for fname in "surfaceTransformPoints" \
              "simpleFoam" \
              "sample" \
              "applyInit" \
+             "decomposePar" \
+             "reconstructParMesh" \
+             "reconstructPar" \
+             "renumberMesh" \
              "mpiexec";
 do
     zip $PWD.zip platforms/linux64mingw-w64SPOpt/bin/${fname}.exe
 done
 
-# uncomment if we have scotch
-#for fname in "decomposePar" \
-#             "reconstructParMesh" \
-#             "reconstructPar" \
-#             "renumberMesh";
-#do
-#    zip $PWD.zip platforms/linux64mingw-w64SPOpt/bin/${fname}.exe
-#donelibincompressibleRASModels
+# scotch
 
 # zip the dlls that the executables depend on.  These were found using
 # dependancy walker and trial and error.
@@ -78,7 +77,6 @@ for fname in "libOpenFOAM" \
              "libfiniteVolume" \
              "libgcc_s_sjlj-1" \
              "libstdc++-6" \
-             "zlib1.dll" \
              "libmeshTools" \
              "libtriSurface" \
              "libdynamicFvMesh" \
@@ -106,13 +104,10 @@ for fname in "libOpenFOAM" \
              "libtwoPhaseMixture" \
              "libsolidSpecie" \
              "libfvMotionSolvers" \
+             "libscotch" \
              "msmpi64" \
              "libWindNinja";
 do
     zip $PWD.zip platforms/linux64mingw-w64SPOpt/lib/${fname}.dll
 done
 
-# just get everything
-#zip -r $PWD.zip etc/ \
-#                platforms/linux64mingw-w64SPOpt/lib/*.dll \
-#                platforms/linux64mingw-w64SPOpt/bin/*.exe

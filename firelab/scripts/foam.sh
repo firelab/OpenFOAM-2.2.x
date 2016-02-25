@@ -104,6 +104,8 @@ for fname in "libOpenFOAM" \
              "libtwoPhaseMixture" \
              "libsolidSpecie" \
              "libfvMotionSolvers" \
+             "libdecompositionMethods" \
+             "librenumberMethods"
              "libscotch" \
              "msmpi64" \
              "libWindNinja";

@@ -11,7 +11,7 @@ source $FOAM_INST_DIR/OpenFOAM-2.2.x/etc/bashrc \
        WM_OSTYPE=MSwindows \
        WM_COMPILER=mingw-w64 \
        WM_ARCH_OPTION=64 \
-       WM_PRECISION_OPTION=SP \
+       WM_PRECISION_OPTION=DP \
        WM_CC=x86_64-w64-mingw32-gcc \
        WM_CXX=x86_64-w64-mingw32-g++ \
        compilerInstall=system \
@@ -29,19 +29,19 @@ cd $WM_PROJECT_DIR &&
 
 # copy some stuff into the foam distribution folders.
 cp /usr/lib/gcc/x86_64-w64-mingw32/4.8/libgcc_s_sjlj-1.dll \
-   platforms/linux64mingw-w64SPOpt/lib/ &&
+   platforms/linux64mingw-w64DPOpt/lib/ &&
 cp /usr/x86_64-w64-mingw32/lib/libwinpthread-1.dll \
-   platforms/linux64mingw-w64SPOpt/lib/ &&
+   platforms/linux64mingw-w64DPOpt/lib/ &&
 cp /usr/lib/gcc/x86_64-w64-mingw32/4.8/libstdc++-6.dll \
-   platforms/linux64mingw-w64SPOpt/lib/ &&
-cp firelab/msmpi/Lib/amd64/msmpi64.dll platforms/linux64mingw-w64SPOpt/lib &&
-cp firelab/msmpi/Bin/mpiexec.exe platforms/linux64mingw-w64SPOpt/bin &&
-#cp firelab/zlib-1.2.8/zlib1.dll platforms/linux64mingw-w64SPOpt/lib &&
-cp platforms/linux64mingw-w64SPOpt/lib/msmpi/*.dll platforms/linux64mingw-w64SPOpt/lib &&
-cp $FOAM_USER_LIBBIN/*.dll platforms/linux64mingw-w64SPOpt/lib/ &&
-cp $FOAM_USER_APPBIN/*.exe platforms/linux64mingw-w64SPOpt/bin/ &&
+   platforms/linux64mingw-w64DPOpt/lib/ &&
+cp firelab/msmpi/Lib/amd64/msmpi64.dll platforms/linux64mingw-w64DPOpt/lib &&
+cp firelab/msmpi/Bin/mpiexec.exe platforms/linux64mingw-w64DPOpt/bin &&
+#cp firelab/zlib-1.2.8/zlib1.dll platforms/linux64mingw-w64DPOpt/lib &&
+cp platforms/linux64mingw-w64DPOpt/lib/msmpi/*.dll platforms/linux64mingw-w64DPOpt/lib &&
+cp $FOAM_USER_LIBBIN/*.dll platforms/linux64mingw-w64DPOpt/lib/ &&
+cp $FOAM_USER_APPBIN/*.exe platforms/linux64mingw-w64DPOpt/bin/ &&
 
-cp $WM_THIRD_PARTY_DIR/scotch_6.0.0/src/libscotch/libscotch.dll platforms/linux64mingw-w64SPOpt/lib/
+cp $WM_THIRD_PARTY_DIR/scotch_6.0.0/src/libscotch/libscotch.dll platforms/linux64mingw-w64DPOpt/lib/
 
 # zip etc
 zip -r $PWD.zip etc/ &&
@@ -66,7 +66,7 @@ for fname in "surfaceTransformPoints" \
              "renumberMesh" \
              "mpiexec";
 do
-    zip $PWD.zip platforms/linux64mingw-w64SPOpt/bin/${fname}.exe
+    zip $PWD.zip platforms/linux64mingw-w64DPOpt/bin/${fname}.exe
 done
 
 # scotch
@@ -105,11 +105,11 @@ for fname in "libOpenFOAM" \
              "libsolidSpecie" \
              "libfvMotionSolvers" \
              "libdecompositionMethods" \
-             "librenumberMethods"
-             "libscotch" \
+             "librenumberMethods" \
+             "libscotch*" \
              "msmpi64" \
              "libWindNinja";
 do
-    zip $PWD.zip platforms/linux64mingw-w64SPOpt/lib/${fname}.dll
+    zip $PWD.zip platforms/linux64mingw-w64DPOpt/lib/${fname}.dll
 done
 

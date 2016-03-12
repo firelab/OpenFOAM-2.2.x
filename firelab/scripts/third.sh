@@ -31,3 +31,5 @@ cd $WM_THIRD_PARTY_DIR/scotch/src
 rm -rf Makefile.inc
 ln -s $WM_PROJECT_DIR/extra/scotch/src/Make.inc/Makefile.inc.mingw-w64 $WM_THIRD_PARTY_DIR/scotch/src/Makefile.inc
 make libscotch
+mkdir -p $FOAM_LIBBIN
+cp $WM_THIRD_PARTY_DIR/scotch/src/libscotch/libscotch.* $FOAM_LIBBIN/

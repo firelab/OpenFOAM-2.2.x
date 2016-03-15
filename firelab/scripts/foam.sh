@@ -21,6 +21,11 @@ source $FOAM_INST_DIR/OpenFOAM-2.2.x/etc/bashrc \
 cd $WM_PROJECT_DIR &&
 find . -name Allwmake -exec chmod +x '{}' \;
 ./Allwmake &&
+
+# for some reason, recontstructParMesh doesn't get built.  Jump in and build
+# it.
+cd $WM_PROJECT_DIR/applications/utilities/parallelProcessing/reconstructParMesh
+wmake &&
 cd $HOME/src/windninja/src/ninjafoam/ &&
 wmake libso &&
 cd $HOME/src/windninja/src/ninjafoam/utility/applyInit &&

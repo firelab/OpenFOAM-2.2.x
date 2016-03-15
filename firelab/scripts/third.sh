@@ -2,6 +2,7 @@ export FOAM_INST_DIR="`dirname $PWD`";
 source $FOAM_INST_DIR/OpenFOAM-2.2.x/etc/bashrc
 
 cd ../
+#wget http://downloads.sourceforge.net/project/foam/foam/2.2.1/ThirdParty-2.2.1.tgz
 tar -xvf ThirdParty-2.2.1.tgz
 
 ln -s ThirdParty-2.2.1 $WM_THIRD_PARTY_DIR

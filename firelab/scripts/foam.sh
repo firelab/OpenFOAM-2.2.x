@@ -112,6 +112,8 @@ for fname in "libOpenFOAM" \
              "libfvMotionSolvers" \
              "libdecompositionMethods" \
              "librenumberMethods" \
+             "libregionModels" \
+             "libreconstruct" \
              "libscotch*" \
              "msmpi64" \
              "libWindNinja";

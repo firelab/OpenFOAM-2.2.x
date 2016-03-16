@@ -86,6 +86,7 @@ for fname in "libOpenFOAM" \
              "libtriSurface" \
              "libdynamicFvMesh" \
              "libsampling" \
+             "libdecompose" \
              "libPstream" \
              "libdynamicMesh" \
              "libblockMesh" \

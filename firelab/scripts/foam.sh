@@ -41,6 +41,7 @@ cp /usr/lib/gcc/x86_64-w64-mingw32/4.8/libstdc++-6.dll \
    platforms/linux64mingw-w64DPOpt/lib/ &&
 cp firelab/msmpi/Lib/amd64/msmpi64.dll platforms/linux64mingw-w64DPOpt/lib &&
 cp firelab/msmpi/Bin/mpiexec.exe platforms/linux64mingw-w64DPOpt/bin &&
+cp firelab/msmpi/Bin/smpd.exe platforms/linux64mingw-w64DPOpt/bin &&
 #cp firelab/zlib-1.2.8/zlib1.dll platforms/linux64mingw-w64DPOpt/lib &&
 cp platforms/linux64mingw-w64DPOpt/lib/msmpi/*.dll platforms/linux64mingw-w64DPOpt/lib &&
 cp $FOAM_USER_LIBBIN/*.dll platforms/linux64mingw-w64DPOpt/lib/ &&
@@ -69,6 +70,7 @@ for fname in "surfaceTransformPoints" \
              "reconstructParMesh" \
              "reconstructPar" \
              "renumberMesh" \
+             "smpd" \
              "mpiexec";
 do
     zip $PWD.zip platforms/linux64mingw-w64DPOpt/bin/${fname}.exe
